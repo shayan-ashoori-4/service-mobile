@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  apk-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: apk-builder-web
+    ports:
+      - "3004:3004"
+    environment:
+      - NODE_ENV=production
+      - PORT=3004
+      - UPLOAD_DIR=/tmp/uploads
+    volumes:
+      # Optional: Mount lite-service for development (comment out for production)
+      # - ./lite-service:/app/lite-service
+      # Optional: Persistent storage for uploads
+      - ./web-builder/uploads:/tmp/uploads
+    restart: unless-stopped
+    networks:
+      - apk-builder-network
+
+networks:
+  apk-builder-network:
+    driver: bridge
+

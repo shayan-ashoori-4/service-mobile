@@ -1,0 +1,55 @@
+{
+  "name": "DigikalaGold",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "start": "tsc && react-native start",
+    "test": "jest",
+    "all:run": "yarn ios:run & yarn android:run &",
+    "all:clean": "yarn ios:clean & yarn android:clean &",
+    "ios:run": "react-native run-ios",
+    "ios:clean": "cd ios && rm -rf Pods build && pod install --verbose",
+    "ios:build": "tsc && npx react-native build-ios --mode=Release",
+    "android:run": "react-native run-android",
+    "android:clean": "cd android && ./gradlew clean",
+    "android:build": "tsc && npx react-native build-android --mode=release && cd ./android && ./gradlew assembleRelease && ls -lah ./app/build/outputs/apk/release/",
+    "android:install-on-phone": "for device in $(adb devices | sed '1d' | awk '{print $1}'); do adb -s $device install ./android/app/build/outputs/apk/release/app-universal-release.apk; done"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.1.1",
+    "@react-native-firebase/app": "^21.11.0",
+    "@react-native-firebase/messaging": "^21.11.0",
+    "@sentry/react-native": "^6.8.0",
+    "react": "19.0.0",
+    "react-native": "^0.78.0",
+    "react-native-device-info": "^14.0.4",
+    "react-native-fs": "^2.20.0",
+    "react-native-otp-verify": "^1.1.8",
+    "react-native-safe-area-context": "^5.2.0",
+    "react-native-webview": "^13.13.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/runtime": "^7.25.0",
+    "@react-native-community/cli": "15.0.1",
+    "@react-native-community/cli-platform-android": "15.0.1",
+    "@react-native-community/cli-platform-ios": "15.0.1",
+    "@react-native/babel-preset": "0.78.0",
+    "@react-native/eslint-config": "0.78.0",
+    "@react-native/metro-config": "0.78.0",
+    "@react-native/typescript-config": "0.78.0",
+    "@types/jest": "^29.5.13",
+    "@types/react": "^19.0.0",
+    "@types/react-test-renderer": "^19.0.0",
+    "eslint": "^8.19.0",
+    "jest": "^29.6.3",
+    "prettier": "^3.5.1",
+    "react-test-renderer": "19.0.0",
+    "typescript": "5.0.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

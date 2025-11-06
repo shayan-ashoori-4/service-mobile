@@ -1,0 +1,19 @@
+image: reactnativecommunity/react-native-android
+
+before_script:
+  - echo "CI/CD is temporarily disabled"
+  - exit 0
+  - npx envinfo
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - echo "Working directory $PWD"
+    - yarn install
+    - yarn android:build
+  artifacts:
+    paths:
+      - ./android/app/build/outputs/apk/release/

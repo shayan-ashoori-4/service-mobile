@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "442607240872",
+    "project_id": "push-notif-98a7c",
+    "storage_bucket": "push-notif-98a7c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442607240872:android:cba9367e9fb6b87bef249d",
+        "android_client_info": {
+          "package_name": "com.test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1P1h44v_FJ-p1joV4we4eT_UhrLEYK9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

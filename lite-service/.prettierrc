@@ -1,0 +1,17 @@
+{
+  "printWidth": 90,
+  "editor.formatOnSave": true,
+  "tabWidth": 2,
+  "requireConfig": false,
+  "useTabs": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "semi": true,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "html.format.wrapLineLength": 80,
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "arrowParens": "always",
+  "importOrder": ["^react" ,"<THIRD_PARTY_MODULES>", "^[.]/.*(?<![.]s?css)$"],
+  "importOrderSortSpecifiers": true
+}
