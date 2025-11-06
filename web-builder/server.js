@@ -6,7 +6,7 @@ const fs = require('fs');
 const multer = require('multer');
 
 const app = express();
-const PORT = 3004;
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());

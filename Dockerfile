@@ -1,16 +1,17 @@
 # Multi-stage Dockerfile for APK Builder Web Service
-FROM node:18-alpine AS base
+FROM node:22-alpine AS base
 
 # Install system dependencies for building Android APKs
 RUN apk add --no-cache \
-    openjdk-17-jdk \
-    android-tools \
+    openjdk17-jdk \
     bash \
     git \
     python3 \
     make \
     g++ \
-    curl
+    curl \
+    zip \
+    unzip
 
 # Set JAVA_HOME
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk
@@ -65,15 +66,17 @@ RUN mkdir -p /tmp/uploads && \
 WORKDIR /app/web-builder
 
 # Expose port
-EXPOSE 3004
+EXPOSE 3000
 
 # Set environment variables
 ENV NODE_ENV=production
-ENV PORT=3004
+ENV PORT=3000
+ENV ANDROID_HOME=/opt/android-sdk
+ENV PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3004', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
+  CMD node -e "require('http').get('http://localhost:3000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
 # Start the web-builder server
 CMD ["node", "server.js"]
