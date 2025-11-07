@@ -10,12 +10,13 @@ buildscript {
     }
     repositories {
         google()
+        mavenCentral()
         maven {
             url 'https://maven.myket.ir'
         }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        classpath("com.android.tools.build:gradle:8.5.2")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
         classpath("com.google.gms:google-services:4.3.14")
@@ -25,6 +26,7 @@ buildscript {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         maven {
             url 'https://maven.myket.ir'
         }
